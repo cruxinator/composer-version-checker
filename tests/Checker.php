@@ -38,4 +38,35 @@ class Checker extends TestCase
 
             ];
     }
+    
+    public function doubleProvider()
+    {
+        $single = $this->provider();
+        $count = floor(count($single)/2);
+        $testData = [];
+        for($i = 0; $i < $count; $i++){
+            $testData[] = [
+                $single[$i][0],
+                $single[$i][1],
+                $single[$i][2],
+                $single[$i][3],
+                $single[$i+1][0],
+                $single[$i+1][1],
+                $single[$i+1][2],
+                $single[$i+1][3]
+                ];
+        }
+        return $testData;
+    }
+    /**
+     * This is purposely not implemented to demonstrated the output in VPU.
+     *
+     * @test
+     * @dataProvider doubleProvider
+     */
+    public function checkerAlreadyBootedTest($method1, $package1, $version1, $outcome1, $method2, $package2, $version2, $outcome2)
+    {
+        $this->assertEquals($outcome1, MainCheck::{$method1}($package1, $version1));
+        $this->assertEquals($outcome2, MainCheck::{$method2}($package2, $version2));
+    }
 }
