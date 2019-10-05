@@ -3,6 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
+[![Coverage Status][ico-cover]][link-cover]
 [![Scrutinizer Code Quality][ico-scrutinizer]][link-scrutinizer]
 [![StyleCI][ico-styleci]][link-styleci]
 
@@ -22,12 +23,14 @@ $ composer require cruxinator/composer-version-checker
 [ico-version]: https://img.shields.io/packagist/v/cruxinator/composer-version-checker.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/cruxinator/composer-version-checker.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/cruxinator/composer-version-checker/master.svg?style=flat-square
+[ico-cover]: https://coveralls.io/repos/github/cruxinator/composer-version-checker/badge.svg?branch=master
 [ico-scrutinizer]: https://scrutinizer-ci.com/g/cruxinator/composer-version-checker/badges/quality-score.png?b=master
 [ico-styleci]: https://styleci.io/repos/212939641/shield
 
 [link-packagist]: https://packagist.org/packages/cruxinator/composer-version-checker
 [link-downloads]: https://packagist.org/packages/cruxinator/composer-version-checker
 [link-travis]: https://travis-ci.org/cruxinator/composer-version-checker
+[link-cover]: https://coveralls.io/github/cruxinator/composer-version-checker?branch=master
 [link-scrutinizer]: https://scrutinizer-ci.com/g/cruxinator/composer-version-checker/?branch=master
 [link-styleci]: https://styleci.io/repos/212939641
 [link-author]: https://github.com/cruxinator
