@@ -2,30 +2,33 @@
 
 namespace Cruxinator\ComposerVersionChecker;
 
+use Composer\Semver\Semver;
 use Composer\Semver\Comparator;
-use Composer\Semver\Semver ;
 
 class Checker
 {
     protected static $installedPackages = null;
     protected static $versionParser = null;
     protected static $booted = false;
+
     protected static function boot()
     {
         if (self::$booted) {
             return;
         }
         $composerDirectory = dirname((new \ReflectionClass('Composer\Autoload\ClassLoader'))->getFileName());
-        $installedFile = $composerDirectory . DIRECTORY_SEPARATOR . 'installed.json';
+        $installedFile = $composerDirectory.DIRECTORY_SEPARATOR.'installed.json';
         self::$installedPackages = json_decode(file_get_contents($installedFile), false);
         self::$versionParser = new \Composer\Semver\VersionParser();
     }
+
     protected static function getPackageNormalizedVersion($packageName)
     {
         self::boot();
         $package = array_filter(self::$installedPackages, function ($package) use ($packageName) {
             return $package->name == $packageName;
         });
+
         return array_pop($package)->version_normalized;
     }
 
@@ -46,6 +49,7 @@ class Checker
     {
         return Comparator::greaterThan(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Evaluates the expression: $package->version >= $version.
      *
@@ -58,6 +62,7 @@ class Checker
     {
         return Comparator::greaterThanOrEqualTo(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Evaluates the expression: $package->version < $version.
      *
@@ -70,6 +75,7 @@ class Checker
     {
         return Comparator::lessThan(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Evaluates the expression: $package->version <= $version.
      *
@@ -82,6 +88,7 @@ class Checker
     {
         return Comparator::lessThanOrEqualTo(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Evaluates the expression: $package->version == $version.
      *
@@ -94,6 +101,7 @@ class Checker
     {
         return Comparator::equalTo(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Evaluates the expression: $package->version != $version.
      *
@@ -106,6 +114,7 @@ class Checker
     {
         return Comparator::notEqualTo(self::getPackageNormalizedVersion($package), self::normalize($version));
     }
+
     /**
      * Determine if installed package version satisfies given constraints.
      *
