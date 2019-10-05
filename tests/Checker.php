@@ -8,8 +8,6 @@ use Cruxinator\ComposerVersionChecker\Checker as MainCheck;
 class Checker extends TestCase
 {
     /**
-     * This is purposely not implemented to demonstrated the output in VPU.
-     *
      * @test
      * @dataProvider provider
      */
@@ -61,8 +59,6 @@ class Checker extends TestCase
     }
 
     /**
-     * This is purposely not implemented to demonstrated the output in VPU.
-     *
      * @test
      * @dataProvider doubleProvider
      */
