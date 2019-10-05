@@ -1,0 +1,33 @@
+{
+    "name": "cruxinator/composer-version-checker",
+    "description": "Conditioal Version Checker for installed composer packages.",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Christopher Harris",
+            "email": "c.harris@communicationinnovations.com.au",
+            "homepage": "http://www.cruxinator.com"
+        }
+    ],
+    "homepage": "https://github.com/cruxinator/composer-version-checker",
+    "keywords": [ "ComposerVersionChecker"],
+    "require": {
+        "composer/semver": "^1.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cruxinator\\ComposerVersionChecker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cruxinator\\ComposerVersionChecker\\Tests\\": "tests"
+        }
+    }
+}
