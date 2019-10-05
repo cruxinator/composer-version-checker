@@ -20,6 +20,7 @@ class Checker
         $installedFile = $composerDirectory.DIRECTORY_SEPARATOR.'installed.json';
         self::$installedPackages = json_decode(file_get_contents($installedFile), false);
         self::$versionParser = new \Composer\Semver\VersionParser();
+        self::$booted = true;
     }
 
     protected static function getPackageNormalizedVersion($packageName)
