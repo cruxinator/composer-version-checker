@@ -38,26 +38,28 @@ class Checker extends TestCase
 
             ];
     }
-    
+
     public function doubleProvider()
     {
         $single = $this->provider();
-        $count = floor(count($single)/2);
+        $count = floor(count($single) / 2);
         $testData = [];
-        for($i = 0; $i < $count; $i++){
+        for ($i = 0; $i < $count; $i++) {
             $testData[] = [
                 $single[$i][0],
                 $single[$i][1],
                 $single[$i][2],
                 $single[$i][3],
-                $single[$i+1][0],
-                $single[$i+1][1],
-                $single[$i+1][2],
-                $single[$i+1][3]
+                $single[$i + 1][0],
+                $single[$i + 1][1],
+                $single[$i + 1][2],
+                $single[$i + 1][3],
                 ];
         }
+
         return $testData;
     }
+
     /**
      * This is purposely not implemented to demonstrated the output in VPU.
      *
